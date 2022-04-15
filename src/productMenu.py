@@ -1,4 +1,5 @@
 from bullet import Input, Numbers  # and etc...
+from src.fileWriter import writeFile
 # Create a Bullet or Check object
 shipping_costs = {
     "local": 0,
@@ -16,8 +17,4 @@ def product_menu():
     new_product["description"] = Input('Product decription: ').launch()
     shipping_costs["local"] = Numbers('Local shipping cost: ').launch()
     shipping_costs["provinces"] = Numbers('Provinces shipping cost: ').launch()
-
-
-def printItems():
-    for key, value in new_product.items():
-        print(key, ": ", value)
+    writeFile(new_product)
