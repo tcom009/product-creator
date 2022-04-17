@@ -12,6 +12,7 @@ def write_file(data):
 def read_file():
     """
     returns data parsed into a python list
+    if the file doesn't exists create a new one as empty array
     todo: Add a variable to get the file name
     """
     file_exists = exists("products.json")
