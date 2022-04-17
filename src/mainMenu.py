@@ -1,6 +1,6 @@
 from bullet import Bullet
 from src.productMenu import product_menu
-from src.search import showData
+from src.search import searchMenu
 main_menu_choices = ["Create product",
                      "Edit Product", "Remove Product", "Exit"]
 main_menu = Bullet(prompt="Choose from the items below: ",
@@ -13,7 +13,7 @@ def main_menu():
         product_menu()
 
     elif result == main_menu_choices[1]:
-        showData()
+        searchMenu()
     elif result == main_menu_choices[2]:
         print(result)
 
