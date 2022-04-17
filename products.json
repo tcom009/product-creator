@@ -1,9 +1,1 @@
-[
-  {
-    "shipping_costs": { "local": 0.0, "provinces": 0.0 },
-    "name": "0",
-    "price": 0.0,
-    "description": "0",
-    "id": "86d37bd3-fa01-412b-9dd6-9cee03c71b94"
-  }
-]
+[{"shipping_costs": {"local": 0.0, "provinces": 0.0}, "name": "0", "price": 0.0, "description": "0", "id": "86d37bd3-fa01-412b-9dd6-9cee03c71b94"}, {"shipping_costs": {"local": 1.0, "provinces": 1.0}, "name": "1", "price": 1.0, "description": "1", "id": "8eed5179-b81e-4d31-90d4-9f0b45cb1013"}]
