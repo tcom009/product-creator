@@ -1,5 +1,4 @@
-from bullet import Bullet, Check, YesNo, Input  # and etc...
-# Create a Bullet or Check objectç
+from bullet import Bullet
 from src.productMenu import product_menu
 main_menu_choices = ["Create product",
                      "Edit Product", "Remove Product", "Exit"]
