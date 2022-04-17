@@ -1,10 +1,33 @@
 import json
+from uuid import uuid4
+from os.path import exists
 
-def writeFile(data):
-    json_data = json.dumps(data, indent=4)
-    with open("products.json", "r") as openfile:
-        prev_data = json.load(openfile)
-        prev_data = json.dumps(prev_data, indent=4)
-        new_data = [prev_data].append(json_data)
-    with open("products.json", "w") as outfile:
-        outfile.write(json.dumps(new_data))
+
+def write_file(data):
+
+    with open("products.json", "w") as json_file:
+        json_file.write(json.dumps(data))
+
+
+def read_file():
+    """
+    returns data parsed into a python list
+    todo: Add a variable to get the file name
+    """
+    file_exists = exists("products.json")
+
+    if file_exists:
+        with open("products.json", "r") as json_file:
+            prev_data = json.load(json_file)
+    else:
+        write_file([])
+        prev_data = []
+    return prev_data
+
+
+def submit_data(new_data):
+    prev_data = read_file()
+    id = str(uuid4())
+    new_data["id"] = id
+    prev_data.append(new_data)
+    write_file(prev_data)
