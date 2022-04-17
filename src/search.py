@@ -5,6 +5,14 @@ from src.fileWriter import read_file
 import re
 from bullet import Bullet
 
+options = []
+
+
+def getValues(result):
+    for option in options:
+        if option == result:
+            return option
+
 
 def searchData(name):
     file = read_file()
@@ -12,14 +20,17 @@ def searchData(name):
     data_frame = pd.DataFrame(file)
     casevalues = data_frame[data_frame.name.str.contains(
         name, flags=re.IGNORECASE)].values
-    options = []
-    for result in casevalues:
-        options.append(result[0])
+    for case in casevalues:
+        options.append(case[0])
     menu = Bullet(choices=options)
-    result = menu.launch()
+    bullet_result = menu.launch()
+    id = ""
+    for case in casevalues:
+        if case[0] == bullet_result:
+            id = case[3]
+    if bullet_result == getValues(bullet_result):
+        edit(id)
 
-    # print(type(casevalues))
-    # print(casevalues)
 
 
 def showData(product_name):
@@ -29,3 +40,7 @@ def showData(product_name):
 def searchMenu():
     name = Input("Product name: ").launch()
     showData(name)
+
+
+def edit(id):
+    print(f"You are editing {id}")
